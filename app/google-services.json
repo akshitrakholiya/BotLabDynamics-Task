@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "743549515436",
+    "project_id": "botlabdynamics-task",
+    "storage_bucket": "botlabdynamics-task.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743549515436:android:40e7c04a164978b63e5109",
+        "android_client_info": {
+          "package_name": "com.akshit.botlabdynamics"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBllSu-WB3UsNYdrKPz3k71-xSWyOIf1FI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
