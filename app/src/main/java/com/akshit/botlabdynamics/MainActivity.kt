@@ -1,8 +1,8 @@
 package com.akshit.botlabdynamics
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import com.akshit.botlabdynamics.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +16,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Example of a call to a native method
-        binding.sampleText.text = stringFromJNI()
+        val isOpenCVInitialized = initOpenCV()
+
+        // Update UI based on initialization status
+        if (isOpenCVInitialized) {
+            binding.opencvStatusText.text = "OpenCV initialized successfully!"
+            binding.opencvStatusText.setTextColor(Color.GREEN)
+        } else {
+            binding.opencvStatusText.text = "OpenCV initialization failed!"
+            binding.opencvStatusText.setTextColor(Color.RED)
+        }
     }
 
     /**
@@ -24,6 +33,8 @@ class MainActivity : AppCompatActivity() {
      * which is packaged with this application.
      */
     external fun stringFromJNI(): String
+
+    external fun initOpenCV(): Boolean
 
     companion object {
         // Used to load the 'botlabdynamics' library on application startup.

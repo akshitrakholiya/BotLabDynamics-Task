@@ -24,14 +24,26 @@ project("botlabdynamics")
 # System.loadLibrary() and pass the name of the library defined here;
 # for GameActivity/NativeActivity derived applications, the same library name must be
 # used in the AndroidManifest.xml file.
+# Include OpenCV headers
+include_directories(${CMAKE_SOURCE_DIR}/../../../../opencv/native/jni/include)
+
+# Import OpenCV library
+# Add OpenCV library
+add_library(opencv_java4 SHARED IMPORTED)
+set_target_properties(opencv_java4 PROPERTIES IMPORTED_LOCATION
+        ${CMAKE_SOURCE_DIR}/../../../../opencv/native/libs/${ANDROID_ABI}/libopencv_java4.so)
+
+#Path
+#/Users/akshit/Documents/AR Android Projects/BotLabDynamicsTask/opencv/native/jni
+
 add_library(${CMAKE_PROJECT_NAME} SHARED
         # List C/C++ source files with relative paths to this CMakeLists.txt.
         native-lib.cpp)
-
 # Specifies libraries CMake should link to your target library. You
 # can link libraries from various origins, such as libraries defined in this
 # build script, prebuilt third-party libraries, or Android system libraries.
 target_link_libraries(${CMAKE_PROJECT_NAME}
         # List libraries link to the target library
+        opencv_java4
         android
         log)
